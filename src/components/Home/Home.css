@@ -1,0 +1,10 @@
+body {
+    background-color: #373737 !important;
+    scroll-behavior: smooth;
+}
+
+footer {
+    color: white;
+    font-family: 'Fira Code', monospace;
+    text-align: center;
+}

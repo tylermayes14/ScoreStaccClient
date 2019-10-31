@@ -1,0 +1,15 @@
+.NavStyles {
+    background-color: #2E2E2E;
+    color: white !important;
+    font-family: 'Fira Code', monospace;
+    letter-spacing: 5px;
+}
+
+.fontColor {
+    color: white !important;
+    font-family: 'Fira Code', monospace;
+}
+
+.fontSizeAdjust {
+    font-size: 60px;
+}

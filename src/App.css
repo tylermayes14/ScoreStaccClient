@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Roboto Mono', monospace;
+  src: url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+}
+
+#navTitle { 
+  font-family: 'Roboto Mono', monospace;
+  background-color: #2E2E2E;
+}
+
+
+body {
+  background-color: #373737;
+  font-family: 'Roboto Mono', monospace;
+}

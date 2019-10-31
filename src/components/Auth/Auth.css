@@ -1,0 +1,60 @@
+.authBody {
+    background-color: #373737;
+    background-image: url(../assets/authBG.jpg);
+    height: 830px;
+    font-family: 'Fira Code', monospace;
+    text-align: center;
+}
+
+.text{
+    color: white;
+}
+
+.buttonMargin {
+    margin-bottom: 2em;
+    margin-top: 1em;
+    border: none;
+    height: 50px;
+    width: 200px;
+    background-color: gray;
+    color: white;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+label {
+    color: white;
+}
+
+input {
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    height: 40px;
+    width: 300px;
+    text-indent: 5px;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    font-size: 18px;
+}
+
+input:focus {
+    outline: none;
+    background-color: slategray;
+    color: white;
+}
+
+.loginButton {
+    margin-bottom: 3em;
+    border: none;
+    height: 50px;
+    width: 200px;
+    background-color: gray;
+    color: white;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+button:focus {
+    outline-color: black;
+}
