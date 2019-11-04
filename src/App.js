@@ -8,7 +8,7 @@ import Home from './components/Home/Home';
 
 function App() {
 
-  const [sessionToken, setSessionToken] = useState('s');
+  const [sessionToken, setSessionToken] = useState(undefined);
 
   const viewConductor = () => {
     return sessionToken !== undefined ? <Home token={sessionToken} /> : <Auth setSession={setSessionToken} />

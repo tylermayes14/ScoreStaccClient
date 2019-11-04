@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './Auth.css';
+import APIURL from '../../helpers/environment';
 
 const Auth = (props) => {
     const [firstName, setFirstName] = useState('');
@@ -27,7 +28,7 @@ const Auth = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const url = signup ? 'http://localhost:3000/auth/signup' : 'http://localhost:3000/auth/login';
+        const url = signup ? `${APIURL}/auth/signup` : `${APIURL}/auth/login`;
 
         const bodyObj = signup ? {
             email: email,
