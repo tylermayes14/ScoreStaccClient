@@ -17,8 +17,11 @@ function App() {
   return (
     <div>
       {viewConductor()}
+      {/* <img src="https://drive.google.com/uc?export=view&id=0BwD3Iu6JiH1fNzloQ1pNZzhwZWc"/> */}
+      {/* <iframe src="https://drive.google.com/file/d/0BwD3Iu6JiH1fNzloQ1pNZzhwZWc/preview" width="640" height="480"></iframe> */}
       </div>
   );
 }
 
 export default App;
+
