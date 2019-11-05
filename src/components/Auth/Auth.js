@@ -30,7 +30,6 @@ const Auth = (props) => {
         e.preventDefault();
         
         const url = login ? `${APIURL}/scorestacc/user/login` : `${APIURL}/scorestacc/user/signup`;
-        console.log(url)
         const bodyObj = !login ? {
             email: email,
             password: password,
@@ -40,10 +39,11 @@ const Auth = (props) => {
             email: email,
             password: password,
         }
+        console.log(bodyObj)
 
         fetch(url, {
             method: 'POST',
-            body: JSON.stringify({bodyObj}),
+            body: JSON.stringify(bodyObj),
             headers: {
                 'Content-Type': 'application/json'
             }
