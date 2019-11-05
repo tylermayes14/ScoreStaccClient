@@ -3,35 +3,42 @@ import { Jumbotron, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 
 import './Jumbotron.css';
 import { display } from '@material-ui/system';
 
+// skill level image declarations
+let beginner = [
+  <img src="https://drive.google.com/uc?export=view&id=11i1C74HFV02yCfe-CPVuHYKq-kG10t_m" alt="Music City"/>,
+  <img src="https://drive.google.com/uc?export=view&id=0BwD3Iu6JiH1fUHljVXV4ZC1IU2s" alt="Pacific Crest"/>,
+  <img src="https://drive.google.com/uc?export=view&id=1k_N5HSSjYuFFp1n98gZNskFjYQao3z66" alt="Troopers"/>,
+];
+
+let intermediate = [
+  <img src="https://drive.google.com/uc?export=view&id=1Fh70FYRZ4cfQKfTbeDsHNOxXYDNPzZFm" alt="Blue Devils"/>,
+  <img src="https://drive.google.com/uc?export=view&id=10JfEhAEi5koNiP0XdVFMA8vR4egis9WE" alt="Mandarins"/>,
+  <img src="https://drive.google.com/uc?export=view&id=0B6Xc-qnRxOvycjE2V0xWazNJdWM" alt="Star of Indiana"/>,
+];
+
+let advanced = [
+  <img src="https://drive.google.com/uc?export=view&id=0BwD3Iu6JiH1fWkhDdy1OcDJ2TkE" alt="Cadets"/>,
+  <img src="https://drive.google.com/uc?export=view&id=1N8r2G70EabJXqrvVkTpj3ro68qLzd_6m" alt="Bluecoats"/>,
+  <img src="https://drive.google.com/uc?export=view&id=1KovivZAqZ11rae9mY-SoG_J35X66MvnB" alt="Santa Clara Vanguard"/>,
+];
+
+const checkSkill = (skill) => {
+  // console.log(skill);
+
+  if (skill === 'beginner') {
+    return(beginner)
+  } else if (skill === 'intermediate') {
+    return(intermediate)
+  } else if (skill === 'advanced') {
+    return(advanced)
+  } else {
+    return(null)
+  }
+}; 
+
 const Jumbo = (props) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen(prevState => !prevState);
-
-  const beginnerResults = () => {
-    let beginner = [
-      <img src="https://drive.google.com/uc?export=view&id=11i1C74HFV02yCfe-CPVuHYKq-kG10t_m" alt="Music City"/>,
-      <img src="https://drive.google.com/uc?export=view&id=0BwD3Iu6JiH1fUHljVXV4ZC1IU2s" alt="Pacific Crest"/>,
-      <img src="https://drive.google.com/uc?export=view&id=1k_N5HSSjYuFFp1n98gZNskFjYQao3z66" alt="Troopers"/>,
-      ]
-
-      console.log(beginner);
-  }
-
-  const intermediateResults = (e) => {
-    return(
-      fetch()
-      .then()
-      .then()
-    );
-  }
-
-  const advancedResults = (e) => {
-    return(
-      fetch()
-      .then()
-      .then()
-    );
-  }
 
   return (
     <div className="pageColor">
@@ -45,10 +52,10 @@ const Jumbo = (props) => {
         Select
         </DropdownToggle>
       <DropdownMenu>
-        <DropdownItem header>Selet a level</DropdownItem>
-        <DropdownItem onClick={beginnerResults}>Beginner</DropdownItem>
-        <DropdownItem onClick={intermediateResults}>Intermediate</DropdownItem>
-        <DropdownItem onclick={advancedResults}>Advanced</DropdownItem>
+        <DropdownItem header>Selet a skill level</DropdownItem>
+        <DropdownItem onClick={(e) => checkSkill(e.target.value)} value="beginner">Beginner</DropdownItem>
+        <DropdownItem onClick={(e) => checkSkill(e.target.value)} value="intermediate">Intermediate</DropdownItem>
+        <DropdownItem onclick={(e) => checkSkill(e.target.value)} value="advanced">Advanced</DropdownItem>
       </DropdownMenu>
     </Dropdown>
       </Jumbotron>

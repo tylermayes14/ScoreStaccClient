@@ -2,13 +2,15 @@ import React, {useState} from 'react';
 import './Auth.css';
 import APIURL from '../../helpers/environment';
 
+const url = "http://localhost:3000/scorestacc/user";
+
 const Auth = (props) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [login, setLogin] = useState(false);
-    const [signup, setsignup] = useState(true);
+    // const [signup, setSignup] = useState(true);
 
     const title = () => {
         return login ? 'Login' : 'Sign Up';
@@ -18,7 +20,6 @@ const Auth = (props) => {
         event.preventDefault();
 
         setLogin(!login);
-
         setEmail('');
         setPassword('');
         setFirstName('');
@@ -27,10 +28,10 @@ const Auth = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        const url = signup ? `${APIURL}/auth/signup` : `${APIURL}/auth/login`;
-
-        const bodyObj = signup ? {
+        
+        const url = login ? `${APIURL}/scorestacc/user/login` : `${APIURL}/scorestacc/user/signup`;
+        console.log(url)
+        const bodyObj = !login ? {
             email: email,
             password: password,
             firstName: firstName,
@@ -42,13 +43,14 @@ const Auth = (props) => {
 
         fetch(url, {
             method: 'POST',
-            body: JSON.stringify(bodyObj),
+            body: JSON.stringify({bodyObj}),
             headers: {
                 'Content-Type': 'application/json'
             }
         })
         .then(res => res.json())
-        .then(json => props.setSession(json.sessionToken));
+        .then(json => props.setSession(json.sessionToken))
+        .catch(err => console.log(err))
     }
 
     const signupFields = () => !login ?
@@ -80,7 +82,7 @@ const Auth = (props) => {
                 <br/>
                 <input type='password' id='password' value={password} onChange={ (e) => setPassword(e.target.value) } />
                 <br/>
-                <button type='submit' className="buttonMargin" onClick={handleSubmit}>Login/Sign Up</button>
+                <button type='submit' className="buttonMargin">Login/Sign Up</button>
                 <br/>
                 <button onClick={logginToggle} className="loginButton">Toggle</button>
             </form>
