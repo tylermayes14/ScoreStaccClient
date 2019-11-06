@@ -12,7 +12,6 @@ const Home = () => {
         <div>
           <Navbar/>
           <Jumbotron/>
-          
           <footer>
             <p>© Tyler Mayes | 2019</p>
           </footer>

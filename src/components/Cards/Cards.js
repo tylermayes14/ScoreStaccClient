@@ -12,18 +12,19 @@ const useStyles = makeStyles({
   card: {
     maxWidth: 345,
   },
+  media: {
+    height: 140,
+  },
 });
 
-export default function ImgMediaCard() {
+export default function MediaCard() {
   const classes = useStyles();
 
   return (
     <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
-          component="img"
-          alt="Contemplative Reptile"
-          height="140"
+          className={classes.media}
           image="/static/images/cards/contemplative-reptile.jpg"
           title="Contemplative Reptile"
         />
