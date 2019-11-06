@@ -11,9 +11,9 @@ import Home from '../Home/Home';
 
 // skill level image declarations
 let beginner = [
-  {name: 'Music City', image: '../assets/MusicCity.pdf'},
-  {name: 'Pacific Crest', image: '../assets/PacificCrest.pdf'},
-  {name: 'Troopers', image: '../assets/Troopers.pdf'}
+  {name: 'Music City', image: "https://drive.google.com/uc?export=view&id=11i1C74HFV02yCfe-CPVuHYKq-kG10t_m"},
+  {name: 'Pacific Crest', image: 'https://drive.google.com/uc?export=view&id=0BwD3Iu6JiH1fUHljVXV4ZC1IU2s'},
+  {name: 'Troopers', image: 'https://drive.google.com/uc?export=view&id=1k_N5HSSjYuFFp1n98gZNskFjYQao3z66'}
 ];
 
 let intermediate = [
@@ -28,23 +28,30 @@ let advanced = [
   {name: 'Santa Clara Vanguard', image: '../assets/SCV.pdf'}
 ];
 
-const checkSkill = (skill) => {
-  // console.log(skill);
-
-  if (skill === 'beginner') {
-    return beginner.map((music, index)  => {<img src={music.image} alt="Music City"/>})
-  } else if (skill === 'intermediate') {
-    return(intermediate)
-  } else if (skill === 'advanced') {
-    return(advanced)
-  } else {
-    return(null)
-  }
-}; 
 
 const Jumbo = (props) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [skill, setSkill] = useState(undefined)
   const toggle = () => setDropdownOpen(prevState => !prevState);
+        
+  const checkSkill = () => {
+          // console.log(skill);
+          if (skill === 'beginner') {
+            return beginner.map((music, index)  => {
+              return (
+                <div key={index}>
+                  <img src={music.image} alt="Music City"/>
+                </div>
+              ) 
+          })
+          } else if (skill === 'intermediate') {
+            return(intermediate)
+          } else if (skill === 'advanced') {
+            return(advanced)
+          } else {
+            return(null)
+          }
+        }; 
 
   return (
     <div className="pageColor">
@@ -59,12 +66,13 @@ const Jumbo = (props) => {
         </DropdownToggle>
       <DropdownMenu>
         <DropdownItem header>Selet a skill level</DropdownItem>
-        <DropdownItem onClick={(e) => checkSkill(e.target.value)} value="beginner">Beginner</DropdownItem>
-        <DropdownItem onClick={(e) => checkSkill(e.target.value)} value="intermediate">Intermediate</DropdownItem>
-        <DropdownItem onclick={(e) => checkSkill(e.target.value)} value="advanced">Advanced</DropdownItem>
+        <DropdownItem onClick={(e) => setSkill(e.target.value)} value="beginner">Beginner</DropdownItem>
+        <DropdownItem onClick={(e) => setSkill(e.target.value)} value="intermediate">Intermediate</DropdownItem>
+        <DropdownItem onClick={(e) => setSkill(e.target.value)} value="advanced">Advanced</DropdownItem>
       </DropdownMenu>
     </Dropdown>
       </Jumbotron>
+    {skill !== undefined ? checkSkill() : <></>}
     </div>
   );
 };
