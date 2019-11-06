@@ -12,6 +12,7 @@ const Home = () => {
         <div>
           <Navbar/>
           <Jumbotron/>
+          <Table></Table>
           <footer>
             <p>© Tyler Mayes | 2019</p>
           </footer>
