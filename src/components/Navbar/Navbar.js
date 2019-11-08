@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import './Navbar.css';
+import Auth, { setSession } from '../Auth/Auth';
 
 const NavBar = (props) => {
   const [collapsed, setCollapsed] = useState(true);
@@ -15,13 +16,10 @@ const NavBar = (props) => {
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
               <NavItem>
-                  <NavLink href='#' className="fontColor">Home</NavLink>
+                  <NavLink href='#' className="fontColor">Playlist</NavLink>
               </NavItem>
             <NavItem>
-              <NavLink href='#' className="fontColor">Music</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href='#' className="fontColor">Playlist</NavLink>
+              <button className="fontColor">Logout</button>
             </NavItem>
           </Nav>
         </Collapse>

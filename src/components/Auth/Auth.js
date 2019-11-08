@@ -28,7 +28,7 @@ const Auth = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         const url = login ? `${APIURL}/scorestacc/user/login` : `${APIURL}/scorestacc/user/signup`;
         const bodyObj = !login ? {
             email: email,

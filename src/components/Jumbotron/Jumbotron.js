@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
-import { Jumbotron, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import { Jumbotron, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Container, Row, Col } from 'reactstrap';
 import './Jumbotron.css';
+import APIURL from '../../helpers/environment';
+import PlaylistCreate from '../PlaylistCreate/PlaylistCreate';
+import Playlist from '../Playlist/Playlist';
+
+let url = `${APIURL}/scorestacc/playlist`;
 
 // skill level image declarations
 let beginner = [
@@ -21,6 +26,36 @@ let advanced = [
   {name: 'Santa Clara Vanguard', image: 'https://drive.google.com/uc?export=view&id=1KovivZAqZ11rae9mY-SoG_J35X66MvnB'}
 ];
 
+const addToPlaylist = (props) => {
+  // const [playlist, setPlaylist] = useState([]);
+
+        fetch(url, {
+            method: 'GET',
+            headers: new Headers ({
+            'Content-Type': 'application/json',
+            'Authorization': props.token
+        })
+    }) .then( (res) => res.json())
+        .then((logData) => {
+            Playlist(logData)
+            console.log(logData);
+        })
+      //   useEffect(() => {
+      //     addToPlaylist();
+      // }, [])
+      
+          return(
+              <Container>
+                  <Row>
+                      <Col>
+                      {/* create component */}
+                      </Col>
+                      <Col>
+                      </Col>
+                  </Row>
+              </Container>
+        )
+    }
 
 const Jumbo = (props) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -32,8 +67,9 @@ const Jumbo = (props) => {
           if (skill === 'beginner') {
             return beginner.map((music, index)  => {
               return (
-                <div key={index} class="imageAlign">
+                <div key={index} className="imageAlign">
                   <img src={music.image} alt="Displayed Music"/>
+                  <button onClick={addToPlaylist} className="button">Add to playlist</button>
                 </div>
               ) 
           })
@@ -42,6 +78,7 @@ const Jumbo = (props) => {
               return (
                 <div key={index} className="imageAlign">
                   <img src={music.image} alt="Displayed Music"/>
+                  <button onClick={addToPlaylist} className="button">Add to playlist</button>
                 </div>
               ) 
           })
@@ -50,6 +87,7 @@ const Jumbo = (props) => {
               return (
                 <div key={index} className="imageAlign">
                   <img src={music.image} alt="Displayed Music"/>
+                  <button onClick={addToPlaylist} className="button">Add to playlist</button>
                 </div>
               ) 
           })

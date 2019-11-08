@@ -3,15 +3,14 @@ import './Home.css';
 
 import Jumbotron from '../Jumbotron/Jumbotron';
 import Navbar from '../Navbar/Navbar';
-import Table from '../Table/Table'
-import List from '../ListGroup/ListGroup';
-import Cards from '../Cards/Cards';
+import Playlist from '../Playlist/Playlist'
 
 const Home = () => {
     return(
         <div>
           <Navbar/>
           <Jumbotron/>
+          {/* <Playlist/> */}
           <footer>
             <p>© Tyler Mayes | 2019</p>
           </footer>
