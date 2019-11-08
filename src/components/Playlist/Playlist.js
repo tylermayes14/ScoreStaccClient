@@ -1,40 +1,51 @@
 import React, {useState, useEffect} from 'react';
-import {Container, Row, Col} from 'reactstrap';
+import {Table, Button} from 'reactstrap';
 import APIURL from '../../helpers/environment';
+
 
 let url = `${APIURL}/scorestacc/playlist`;
 
 const Playlist = (props) => {
-    const [playlist, setPlaylist] = useState([]);
-
-    const fetchPlaylist = () => {
+    const deleteScore = (score) => {
         fetch(url, {
-            method: 'GET',
-            headers: new Headers ({
+            method: 'DELETE',
+        headers: new Headers({
             'Content-Type': 'application/json',
             'Authorization': props.token
         })
-    }) .then( (res) => res.json())
-        .then((logData) => {
-            setPlaylist(logData)
-            console.log(logData);
-        })
-    }
+    })
+    .then(() => props.fetchScores())
+}
 
-useEffect(() => {
-    fetchPlaylist();
-}, [])
+const scoreMapper = () => {
+    return props.scores.map((score, index) => {
+        return(
+            <tr key={index}>
+                <th>Playlist</th>
+                <td>{score.name}</td>
+                <td>
+                    <Button>Update</Button>
+                    <Button onClick={() => {deleteScore(score)}}>Delete</Button>
+                </td>
+            </tr>
+        )
+    })
+}
 
-    return(
-        <Container>
-            <Row>
-                <Col>
-                {/* create component */}
-                </Col>
-                <Col>
-                </Col>
-            </Row>
-        </Container>
+return(
+    <>
+    <h2>Playlist</h2>
+    <Table striped>
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {scoreMapper()}
+        </tbody>
+    </Table>
+    </>
     )
 }
 
