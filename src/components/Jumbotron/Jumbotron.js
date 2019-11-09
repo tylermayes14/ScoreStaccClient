@@ -30,7 +30,7 @@ const addToPlaylist = (props) => {
   // const [playlist, setPlaylist] = useState([]);
 
         fetch(url, {
-            method: 'GET',
+            method: 'POST',
             headers: new Headers ({
             'Content-Type': 'application/json',
             'Authorization': props.token
@@ -43,18 +43,6 @@ const addToPlaylist = (props) => {
       //   useEffect(() => {
       //     addToPlaylist();
       // }, [])
-      
-          return(
-              <Container>
-                  <Row>
-                      <Col>
-                      {/* create component */}
-                      </Col>
-                      <Col>
-                      </Col>
-                  </Row>
-              </Container>
-        )
     }
 
 const Jumbo = (props) => {

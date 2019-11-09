@@ -10,7 +10,7 @@ const Home = () => {
         <div>
           <Navbar/>
           <Jumbotron/>
-          {/* <Playlist/> */}
+          <Playlist/>
           <footer>
             <p>© Tyler Mayes | 2019</p>
           </footer>

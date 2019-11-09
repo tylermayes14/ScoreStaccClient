@@ -17,20 +17,20 @@ const Playlist = (props) => {
     .then(() => props.fetchScores())
 }
 
-const scoreMapper = () => {
-    return props.scores.map((score, index) => {
-        return(
-            <tr key={index}>
-                <th>Playlist</th>
-                <td>{score.name}</td>
-                <td>
-                    <Button>Update</Button>
-                    <Button onClick={() => {deleteScore(score)}}>Delete</Button>
-                </td>
-            </tr>
-        )
-    })
-}
+// const scoreMapper = () => {
+//     return props.scores.map((score, index) => {
+//         return(
+//             <tr key={index}>
+//                 <th>Playlist</th>
+//                 <td>{score.name}</td>
+//                 <td>
+//                     <Button>Update</Button>
+//                     <Button onClick={() => {deleteScore(score)}}>Delete</Button>
+//                 </td>
+//             </tr>
+//         )
+//     })
+// }
 
 return(
     <>
@@ -42,7 +42,7 @@ return(
             </tr>
         </thead>
         <tbody>
-            {scoreMapper()}
+            {/* {scoreMapper()} */}
         </tbody>
     </Table>
     </>

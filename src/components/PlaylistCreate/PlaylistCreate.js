@@ -47,7 +47,7 @@ const PlaylistCreate = (props) => {
                 <Label htmlFor="result"/>
                 <Input name="result" value={result} onChange={(e) => setResult(e.target.value)}/>
             </FormGroup>
-            <Button type="submit">Click to submit</Button>
+            <Button type="submit" onSubmit={handleSubmit}>Click to submit</Button>
         </Form>
         </>
     )
